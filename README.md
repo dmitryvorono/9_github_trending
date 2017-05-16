@@ -1,6 +1,12 @@
 # Github Trends
 
-[TODO. There will be project description]
+This project get most interesting repositories in github created last week
+
+# How to launch
+
+```#!bash
+$ python github_trending.py 
+```
 
 # Project Goals
 
