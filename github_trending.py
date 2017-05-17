@@ -1,6 +1,6 @@
 import requests
 import datetime
-
+import time
 
 def fetch_gitreps_created_last_week():
     search_date = format_day_for_search(get_last_week_day())
@@ -28,6 +28,7 @@ def get_trending_repositories(top_size):
 
 
 def fetch_open_issues_amount(repo_owner, repo_name):
+    time.sleep(1)
     r = requests.get('https://api.github.com/repos/{0}/{1}/issues'
                      .format(repo_owner, repo_name))
     if r.raise_for_status():
