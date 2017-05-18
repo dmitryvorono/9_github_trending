@@ -6,10 +6,10 @@ def fetch_gitreps_created_last_week():
     search_date = format_day_for_search(get_last_week_day())
     search_params = {'q': 'created:>={0}'.format(search_date),
                      'sort': 'stars', 'order': 'desc'}
-    r = requests.get('https://api.github.com/search/repositories',
-                     params=search_params)
-    if not r.raise_for_status():
-        return r.json()
+    api_git_http = 'https://api.github.com/search/repositories'
+    request = requests.get(api_git_http, params=search_params)
+    if not request.raise_for_status():
+        return request.json()
 
 
 def get_last_week_day():
@@ -29,11 +29,11 @@ def get_trending_repositories(top_size):
 
 def fetch_open_issues_amount(repo_owner, repo_name):
     time.sleep(1)
-    r = requests.get('https://api.github.com/repos/{0}/{1}/issues'
+    request = requests.get('https://api.github.com/repos/{0}/{1}/issues'
                      .format(repo_owner, repo_name))
-    if r.raise_for_status():
+    if request.raise_for_status():
         return None
-    return len(r.json())
+    return len(request.json())
 
 
 def print_git_repositories_short_information(repositories):
