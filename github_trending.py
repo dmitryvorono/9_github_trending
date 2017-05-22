@@ -41,6 +41,6 @@ def print_git_repositories_short_information(repositories):
 
 if __name__ == '__main__':
     amount_repositories = 20
-    count_days = 7  # you can change this, e.x 12
+    count_days = 7
     repositories = get_trending_repositories(amount_repositories, count_days)
     print_git_repositories_short_information(repositories)
